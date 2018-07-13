@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/root_details"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/details_date"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="@string/date_ar"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+
+        <View
+            android:id="@+id/view_fasel"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="#cfd8dc" />
+
+        <TextView
+            android:id="@+id/details_cost"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:text="@string/cost_ar"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="#cfd8dc" />
+
+        <TextView
+            android:id="@+id/details_details"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:text="@string/details_ar"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="#cfd8dc" />
+
+
+        <ImageView
+            android:id="@+id/details_status"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:src="@drawable/red_arrow" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="#cfd8dc" />
+
+
+        <TextView
+            android:id="@+id/details_credit"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/credit"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/details_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

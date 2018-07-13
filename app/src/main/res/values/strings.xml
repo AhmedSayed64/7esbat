@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">A7esbat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appName2">7esbaty - حساباتي</string>
+    <string name="add_str">Add</string>
+    <string name="customer_name_hint">الاســم</string>
+    <string name="customer_cost_hint">المبلــغ</string>
+    <string name="add_cus">اضـــــــــافة عمــيل</string>
+    <string name="data_hint">الـتـــاريـخ</string>
+    <string name="details_hint">الــتفــاصـيل</string>
+    <string name="credit">الرصيــد</string>
+    <string name="details_ar">التفاصـيــل</string>
+    <string name="cost_ar">المبلــغ</string>
+    <string name="date_ar">التـــاريـخ</string>
+
+</resources>
