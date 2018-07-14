@@ -66,6 +66,7 @@ public class CustomersListAdapter extends RecyclerView.Adapter<CustomersListAdap
             public void onClick(View view) {
                 Toast.makeText(mContext, "ADD CLICK !", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, Add_detailsActivity.class);
+                intent.putExtra(Add_detailsActivity.EXTRA_CUSTOMER_ID, position);
                 mContext.startActivity(intent);
             }
         });

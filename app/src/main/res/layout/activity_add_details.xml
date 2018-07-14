@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     tools:context="com.example.ahmedsayed.a7esbat.Add_detailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        android:id="@+id/toolbar3"
+        layout="@layout/toolbar" />
+
+    <include
+        android:id="@+id/add_cust"
+        layout="@layout/add_dialog" />
+
+    <include
+        android:id="@+id/detsils_list"
+        layout="@layout/list_details" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/customer_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

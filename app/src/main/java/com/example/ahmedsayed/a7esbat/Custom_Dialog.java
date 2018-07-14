@@ -3,6 +3,7 @@ package com.example.ahmedsayed.a7esbat;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -26,7 +27,7 @@ import model.Customer;
 public class Custom_Dialog extends DialogFragment {
 
 
-    private EditText c_name, c_cost, c_date, c_details;
+    public static Boolean save_clicked;
     final Calendar c = Calendar.getInstance();
     DatePickerDialog datePickerDialog;
     Boolean out_B, in_B;
@@ -36,9 +37,8 @@ public class Custom_Dialog extends DialogFragment {
     DataBaseHelper dataBaseHelper;
     int c_status;
     List<Customer> customerList;
+    private EditText c_name, c_cost, c_date, c_details;
     private myInterface myInterface;
-
-    public static Boolean save_clicked;
 
     public void setLiset(myInterface myInterface) {
         this.myInterface = myInterface;
@@ -98,6 +98,7 @@ public class Custom_Dialog extends DialogFragment {
             @Override
             public void onClick(View view) {
 
+                c_save.setBackgroundColor(Color.GRAY);
                 myCustomer = new Customer(c_name.getText().toString(), c_status, Double.parseDouble(c_cost.getText().toString()),
                         500, c_details.getText().toString(), c_date.getText().toString());
                 customerList = new ArrayList<>();
@@ -115,6 +116,8 @@ public class Custom_Dialog extends DialogFragment {
         c_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                c_cancel.setBackgroundColor(Color.GRAY);
+
                 Toast.makeText(getActivity(), " Cancelled !", Toast.LENGTH_SHORT).show();
                 dismiss();
 

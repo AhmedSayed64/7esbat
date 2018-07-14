@@ -16,12 +16,12 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1.2"
             android:gravity="center"
             android:text="@string/date_ar"
             android:textColor="#000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="1dp"
@@ -35,6 +35,7 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:layout_weight="0.8"
             android:gravity="center"
             android:text="@string/cost_ar"
@@ -53,7 +54,8 @@
             android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1.0"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/details_ar"
             android:textColor="#000"
@@ -87,6 +89,7 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1.0"
             android:gravity="center"

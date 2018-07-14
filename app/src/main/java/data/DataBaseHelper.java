@@ -54,7 +54,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Constants.Customer_Name, Customer_JSON);
         db.insert(Constants.TABLE_CUSTOMER, null, values);
-        Log.d("customer", Customer_JSON.toString());
+        Log.d("customer_tt", Customer_JSON.toString());
         db.close();
 
     }
@@ -74,6 +74,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int id = cursor.getInt(cursor.getColumnIndex(Constants.KEY_ID));
                 String name = cursor.getString(cursor.getColumnIndex(Constants.Customer_Name));
                 Log.d("name_", name);
+//                Type collectionType = new TypeToken<Collection<Customer>>(){}.getType();
+//                Collection<Customer> enums = gson.fromJson(name, collectionType);
+
                 customerList = Arrays.asList(gson.fromJson(name, Customer[].class));
                 customersData.setCustomerList(customerList);
                 customersData.setId(id);
@@ -97,6 +100,50 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return customersDataList;
+    }
+
+    public void customer_deatils(Customer customer, int position) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        position += 1;
+
+        Cursor cursor = db.query(Constants.TABLE_CUSTOMER, new String[]{Constants.Customer_Name},
+                Constants.KEY_ID + " = ?", new String[]{Integer.toString(position)}, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            String JsonName = cursor.getString(0);
+
+            List<Customer> customerList = new ArrayList<>();
+            customerList.add(customer);
+            Gson gson = new Gson();
+            String Customer_JSON = gson.toJson(customerList);
+
+
+            List<String> customers_strings = new ArrayList<>();
+            customers_strings.add(JsonName);
+            customers_strings.add(Customer_JSON);
+
+            update_details(customers_strings.toString(), position);
+
+            Log.d("test_arr", customers_strings.toString());
+
+            Log.d("aysyy", JsonName);
+            Log.d("c_name", customer.getCustomer_name());
+        }
+
+    }
+
+    public void update_details(String customerStrings, int pos) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        pos += 1;
+        ContentValues values = new ContentValues();
+        values.put(Constants.Customer_Name, customerStrings);
+        Log.d("new_customer", customerStrings);
+
+        db.update(Constants.TABLE_CUSTOMER, values, Constants.KEY_ID + " = ?", new String[]{Integer.toString(pos)});
+
+
     }
 
 
