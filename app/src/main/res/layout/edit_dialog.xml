@@ -6,12 +6,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/add_customer_TV"
+        android:id="@+id/add_customer_TV2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorToolbar"
         android:padding="5dp"
-        android:text="@string/add_cus"
+        android:text="@string/edit_cus"
         android:textColor="#fff"
         android:textSize="20sp" />
 
@@ -22,13 +22,11 @@
 
 
         <EditText
-            android:id="@+id/c_name"
+            android:id="@+id/c_name2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="2"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:gravity="center"
             android:hint="@string/customer_name_hint"
             android:inputType="text|textAutoCorrect|textAutoComplete"
@@ -36,11 +34,13 @@
             android:textColorHint="#bcbcbc" />
 
         <EditText
-            android:id="@+id/c_cost"
+            android:id="@+id/c_cost2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center"
             android:hint="@string/cost_ar"
             android:inputType="number|numberDecimal"
@@ -57,28 +57,27 @@
 
 
         <EditText
-            android:id="@+id/c_details"
+            android:id="@+id/c_details2"
             android:layout_width="2.0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="2"
-            android:inputType="text"
-            android:lines="1"
             android:focusable="true"
-            android:maxLines="1"
-            android:scrollHorizontally="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
             android:hint="@string/details_hint"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
             android:textColor="#000"
             android:textColorHint="#bcbcbc" />
 
 
         <EditText
-            android:id="@+id/c_date"
+            android:id="@+id/c_date2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:focusable="false"
@@ -97,7 +96,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/c_out"
+            android:id="@+id/c_out2"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_raduis">
@@ -121,7 +120,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/c_in"
+            android:id="@+id/c_in2"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
@@ -157,7 +156,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/c_save"
+            android:id="@+id/c_save2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
@@ -173,7 +172,7 @@
 
 
         <TextView
-            android:id="@+id/c_cancel"
+            android:id="@+id/c_cancel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"

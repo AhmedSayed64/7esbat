@@ -20,11 +20,14 @@ public class Constants {
     public static final String Customer_Name = "name";
 
     // Customer Table - column names
-    public static final String COST = "cost";
-    public static final String DETAILS = "details";
-    public static final String STATUS = "status";
-    public static final String DATE = "date";
-    public static final String CREDIT = "credit";
+    public static final String Customer_Details = "details";
+
+    // Customer Table - column names
+//    public static final String COST = "cost";
+//    public static final String DETAILS = "details";
+//    public static final String STATUS = "status";
+//    public static final String DATE = "date";
+//    public static final String CREDIT = "credit";
 
 
 }

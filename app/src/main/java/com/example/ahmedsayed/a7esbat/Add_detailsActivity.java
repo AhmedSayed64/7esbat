@@ -20,6 +20,7 @@ import java.util.List;
 import Adapter.CustomerRecyclerAdapter;
 import data.DataBaseHelper;
 import model.Customer;
+import model.CustomerDetails;
 import model.CustomersData;
 
 public class Add_detailsActivity extends AppCompatActivity {
@@ -32,12 +33,15 @@ public class Add_detailsActivity extends AppCompatActivity {
     Customer myCustomer;
     List<Customer> customerList;
     private CustomerRecyclerAdapter recyclerAdapter;
-    private List<CustomersData> customersData, C_Data;
+    CustomersData customersData;
     private DataBaseHelper dbh;
     private int customer_pos;
     private EditText c_name, c_cost, c_date, c_details;
     private RelativeLayout c_in, c_out;
     private TextView c_save, c_cancel, add_customer;
+    CustomerDetails customerDetails;
+    List<CustomerDetails> customerDetailsList;
+    private List<CustomersData> customersDataList, C_Data, testList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,32 +101,35 @@ public class Add_detailsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         dbh = new DataBaseHelper(this);
-        customersData = dbh.get_customers();
+        customersDataList = dbh.get_customers();
         RecyclerView recyclerView = findViewById(R.id.customer_details);
         C_Data = new ArrayList<>();
-        C_Data.add(customersData.get(customer_pos));
+        C_Data.add(customersDataList.get(customer_pos));
 
-        getSupportActionBar().setTitle(C_Data.get(0).getCustomerList().get(0).getCustomer_name());
-        c_name.setText(C_Data.get(0).getCustomerList().get(0).getCustomer_name());
+        getSupportActionBar().setTitle(C_Data.get(0).getName());
+        c_name.setText(C_Data.get(0).getName());
         c_name.setEnabled(false);
 
         c_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myCustomer = new Customer(c_name.getText().toString(), c_status, Double.parseDouble(c_cost.getText().toString()),
+
+                customerDetails = new CustomerDetails(c_status, Double.parseDouble(c_cost.getText().toString()),
                         500, c_details.getText().toString(), c_date.getText().toString());
 
-                customerList = new ArrayList<>();
-                customerList.add(myCustomer);
-                for (int i = 0; i < customerList.size(); i++)
-                    Log.d("customerArr", customerList.get(i).getCustomer_name().toString());
-                dbh = new DataBaseHelper(getApplicationContext());
-                dbh.customer_deatils(myCustomer, customer_pos);
+                Log.d("new_customerID2", Integer.toString(customer_pos));
 
+                customersDataList.get(customer_pos).getCustomerDetailsList().add(customerDetails);
+
+                dbh.update_details(customersDataList, customer_pos);
+                recyclerAdapter.notifyDataSetChanged();
             }
         });
 
-        recyclerAdapter = new CustomerRecyclerAdapter(this, C_Data);
+        testList = dbh.get_customers();
+
+        List<CustomerDetails> details = testList.get(customer_pos).getCustomerDetailsList();
+        recyclerAdapter = new CustomerRecyclerAdapter(this, details);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(recyclerAdapter);

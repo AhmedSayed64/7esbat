@@ -4,5 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorToolbar"
-    app:layout_scrollFlags="scroll|enterAlways" />
+    app:layout_scrollFlags="scroll|enterAlways">
+
+    <ImageView
+        android:id="@+id/edit_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/edit"
+        android:visibility="gone" />
+
+</android.support.v7.widget.Toolbar>
+
 

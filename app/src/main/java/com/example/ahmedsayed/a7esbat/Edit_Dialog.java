@@ -3,10 +3,10 @@ package com.example.ahmedsayed.a7esbat;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
@@ -24,8 +24,7 @@ import model.Customer;
 import model.CustomerDetails;
 import model.CustomersData;
 
-
-public class Custom_Dialog extends DialogFragment {
+public class Edit_Dialog extends DialogFragment {
 
 
     public static Boolean save_clicked;
@@ -38,15 +37,21 @@ public class Custom_Dialog extends DialogFragment {
     DataBaseHelper dataBaseHelper;
     int c_status;
     List<Customer> customerList;
-    public EditText c_name, c_cost, c_date, c_details;
-    private myInterface myInterface;
-
+    DataBaseHelper dbh;
     CustomersData customersData;
+    List<CustomersData> customersDataList;
     CustomerDetails customerDetails;
     List<CustomerDetails> customerDetailsList;
+    int custmoer_pos, details_pos;
+    private EditText c_name, c_cost, c_date, c_details;
+    private myInterface myInterface;
+    private String name, cost, details, date;
 
-    public void setLiset(myInterface myInterface) {
+    public void setLiset(myInterface myInterface, int custmoer_pos, int details_pos) {
         this.myInterface = myInterface;
+        this.custmoer_pos = custmoer_pos;
+        this.details_pos = details_pos;
+
     }
 
     @NonNull
@@ -55,17 +60,28 @@ public class Custom_Dialog extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View mView = inflater.inflate(R.layout.add_dialog, null);
-        c_name = mView.findViewById(R.id.c_name);
-        c_cost = mView.findViewById(R.id.c_cost);
-        c_name.requestFocus();
-        c_details = mView.findViewById(R.id.c_details);
-        c_date = mView.findViewById(R.id.c_date);
-        c_out = mView.findViewById(R.id.c_out);
-        c_in = mView.findViewById(R.id.c_in);
-        c_save = mView.findViewById(R.id.c_save);
-        c_cancel = mView.findViewById(R.id.c_cancel);
+        final View mView = inflater.inflate(R.layout.edit_dialog, null);
+        c_name = mView.findViewById(R.id.c_name2);
+        c_cost = mView.findViewById(R.id.c_cost2);
+        c_cost.setFocusable(true);
+        c_details = mView.findViewById(R.id.c_details2);
+        c_date = mView.findViewById(R.id.c_date2);
+        c_out = mView.findViewById(R.id.c_out2);
+        c_in = mView.findViewById(R.id.c_in2);
+        c_save = mView.findViewById(R.id.c_save2);
+        c_cancel = mView.findViewById(R.id.c_cancel2);
 
+        dbh = new DataBaseHelper(getActivity().getApplicationContext());
+        customersDataList = dbh.get_customers();
+        name = customersDataList.get(custmoer_pos).getName();
+        details = customersDataList.get(custmoer_pos).getCustomerDetailsList().get(details_pos).getDetails();
+        cost = String.valueOf(customersDataList.get(custmoer_pos).getCustomerDetailsList().get(details_pos).getCost());
+        date = customersDataList.get(custmoer_pos).getCustomerDetailsList().get(details_pos).getDate();
+        c_name.setText(name);
+        c_name.setEnabled(false);
+        c_cost.setText(cost);
+        c_date.setText(date);
+        c_details.setText(details);
         c_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -4,8 +4,18 @@ import java.util.List;
 
 
 public class CustomersData {
+    public int getId() {
+        return id;
+    }
+
     private int id;
-    private List<Customer> customerList;
+    private String name;
+    private List<CustomerDetails> customerDetailsList;
+
+    public CustomersData(String name, List<CustomerDetails> customerDetailsList) {
+        this.name = name;
+        this.customerDetailsList = customerDetailsList;
+    }
 
     public CustomersData() {
 
@@ -15,22 +25,20 @@ public class CustomersData {
         this.id = id;
     }
 
-    public void setCustomerList(List<Customer> customerList) {
-        this.customerList = customerList;
+    public String getName() {
+        return name;
     }
 
-    public int getId() {
-
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Customer> getCustomerList() {
-        return customerList;
+    public List<CustomerDetails> getCustomerDetailsList() {
+        return customerDetailsList;
     }
 
-    public CustomersData(int id, List<Customer> customerList) {
-
-        this.id = id;
-        this.customerList = customerList;
+    public void setCustomerDetailsList(List<CustomerDetails> customerDetailsList) {
+        this.customerDetailsList = customerDetailsList;
     }
+
 }

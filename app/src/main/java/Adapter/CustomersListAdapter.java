@@ -46,8 +46,8 @@ public class CustomersListAdapter extends RecyclerView.Adapter<CustomersListAdap
 
         CustomersData mCustomers = customerList.get(position);
 
-        holder.name.setText(mCustomers.getCustomerList().get(0).getCustomer_name());
-        holder.credit.setText(Double.toString(mCustomers.getCustomerList().get(0).getCredit()));
+        holder.name.setText(mCustomers.getName());
+        holder.credit.setText(Double.toString(mCustomers.getCustomerDetailsList().get(0).getCredit()));
         holder.count.setText("25");
 
 
